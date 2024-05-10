@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje al oeste</title>
+    <link rel="stylesheet" href="../css/calificación.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+    <nav>
+        <div class="logo-container">
+            <a href="../Integrantes/libro.html">
+                <img src="../img/logoo.jpeg" alt="Logo de mi sitio" width="100" class="logo">
+            </a>
+        </div>
+        <span class="header-title"></span>
+        <br><br>
+        <a href="../Integrantes/imagenes_Libro.html">Imágenes</a>
+        <a href="../Integrantes/reseña.html">Reseña</a>
+        <a href="../Integrantes/crítica.html">Crítica</a>
+        <a href="../Integrantes/calificación.html">Calificación</a>
+    </nav>
+
+    <h1>Calificación de la novela literaria</h1>
+    <p><strong>Calificación por el autor de la página: </strong> 5/5 </p>
+    <br><br><br>
+    <p><strong>Ingrese su calificación dando clic a las estrellas: </strong> </p>
+    <form action="/submit-rating" method="POST" name="form">
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excelente">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Bueno">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Regular">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Malo">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Pésimo">&#9733;</label>
+        </div><br>
+        <input type="submit" value="Enviar Calificación">
+    </form>
+    
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+</main>
+<footer>Realizado por: Gálvez Osorio Jesús Emmanuel    <br>UTEZ DSM 3ºA</footer>
+</body>
+</html>
