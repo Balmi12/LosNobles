@@ -1,0 +1,96 @@
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('../img/sis.jpg'); /* Ajusta esto a tu ruta de imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Opcional, para que la imagen no se desplace con el scroll */
+    text-align: center;
+}
+
+.logo-container {
+    flex: 0 0 auto;  /* No crece, no se encoge, mantiene su tamaño automático */
+    margin-right: 10px;  /* Espacio a la derecha del logo */
+    /* Si necesitas mover el logo, puedes usar propiedades como margin o transform. */
+}
+
+.logo {
+    border-radius: 50%;
+    border: 2px solid #fff; /* Añade un borde blanco de 2px */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Añade una sombra suave para destacar la imagen */
+    width: 100px; /* Asegúrate de definir un tamaño adecuado si es necesario */
+    height: 100px; /* Igual a la anchura para mantener la proporción del círculo */
+}
+    
+
+header {
+    background-color: rgba(123, 64, 218, 0.473);
+    padding: 15px;
+    color: #a19f13d0;
+    display: flex;  /* Usa flexbox para alinear elementos horizontalmente */
+    align-items: center;  /* Centra verticalmente los elementos del header */
+}
+.header-title {
+    flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+    text-align: left; /* Centra el texto dentro de su contenedor */
+    color: black;
+}
+
+nav {
+    background-color: rgba(90, 71, 31, 0.63);
+    padding: 10px 0;
+    border-radius: 0px; /* Añade bordes redondeados al contenedor nav */
+}
+
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 35px; /* Añade bordes redondeados a cada enlace */
+
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(123, 64, 218, 0.473);
+    color: #0e0d0ad0;
+}
+
+footer {
+    background-color: rgba(90, 71, 31, 0.575);
+    color: white;
+    padding: 18px;
+}
+img {
+    display: block;
+    margin: 0 auto;  
+    max-width: 100%; 
+    height: auto;    
+}
+h1{
+    color:rgba(41, 28, 11, 0.863);
+}
+.recuadro {
+    border: 2px solid rgb(155, 129, 197);
+    padding: 10px; /* Espaciado interno */
+    margin: 20px; /* Espaciado externo */
+    background-color: rgb(155, 129, 197);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para efecto 3D */
+    text-align: justify;
+}
+
+.oko {
+    width: auto !important; 
+    height: auto !important;
+    max-width: none !important;
+}
