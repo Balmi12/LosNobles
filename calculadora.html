@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculadora</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estiloCalc.css'>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora usando los elementos del <b>DOM</b> y <b>JS</b></h1>
+        <input id="n1" type="text" placeholder="Número 1" />
+        <input id="n2" type="text" placeholder="Número 2" />
+
+        <div>
+            <input type="button" value="SUMAR" onclick="sumar();" />
+            <input type="button" value="RESTAR" onclick="restar();" />
+            <input type="button" value="MULTIPLICAR" onclick="multiplicar();" />
+            <input type="button" value="DIVIDIR" onclick="dividir();" />
+            <input type="button" value="EXPONENTE" onclick="exponente();" />
+            <input type="button" value="RAÍZ" onclick="raizCuadrada();" />
+        </div>
+
+        <div>
+            <b>Resultado: <span id="resultado"></span></b>
+        </div>
+
+        <div class="img-container">
+            <img src="https://m.media-amazon.com/images/I/61c-ogi-ilL._AC_UF894,1000_QL80_.jpg" alt="img">
+        </div>
+    </div>
+
+    
+    <script src='js/scriptCalc.js'></script>
+</body>
+</html>
