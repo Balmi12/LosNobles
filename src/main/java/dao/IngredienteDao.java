@@ -30,31 +30,33 @@ public class IngredienteDao {
         return ingrediente;
     }
 
-    public Proveedor getOne(int id_proveedor){
-        Proveedor proveedor = new Proveedor();
-        String query = "select * from proveedor where id = ?;";
+    public Ingrediente getOne(int id_ingrediente){
+        Ingrediente ingrediente = new Ingrediente();
+        String query = "select * from ingrediente where id = ?;";
         try {
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1,id_proveedor);
+            ps.setInt(1,id_ingrediente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                proveedor.setId_proveedor(rs.getInt("id"));
-                proveedor.setNombre_proveedor(rs.getString("nombre"));
+                ingrediente.setId_ingrediente(rs.getInt("id"));
+                ingrediente.setNombre_ingrediente(rs.getString("nombre"));
+                ingrediente.setProveedor(rs.getObject("proveedor", Proveedor.class));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return proveedor;
+        return ingrediente;
     }
 
-    public boolean insert(Proveedor proveedor){
+    public boolean insert(Ingrediente ingrediente){
         boolean flag = false;
-        String query = "insert into proveedor(nombre) values (?);";
+        String query = "insert into ingrediente(nombre,proveedor) values (?,?);";
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,proveedor.getNombre_proveedor());
+            ps.setInt(1,ingrediente.getId_ingrediente());
+            ps.setObject(2,ingrediente.getProveedor().getId_proveedor());//duda
             if(ps.executeUpdate()>0){
                 flag = true;
             }
@@ -64,33 +66,34 @@ public class IngredienteDao {
         return flag;
     }
 
-    public ArrayList<Proveedor> getAll(){
-        ArrayList<Proveedor> proveedores = new ArrayList<>();
-        String query = "select * from proveedor";
+    public ArrayList<Ingrediente> getAll(){
+        ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+        String query = "select * from ingrediente";
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Proveedor proveedor = new Proveedor();
-                proveedor.setId_proveedor(rs.getInt("id"));
-                proveedor.setNombre_proveedor(rs.getString("nombre"));
-                proveedores.add(proveedor);
+                Ingrediente ingrediente = new Ingrediente();
+                ingrediente.setId_ingrediente(rs.getInt("id"));
+                ingrediente.setNombre_ingrediente(rs.getString("nombre"));
+                ingrediente.setProveedor(rs.getObject("proveedor", Proveedor.class));//duda
+                ingredientes.add(ingrediente);
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return proveedores;
+        return ingredientes;
     }
 
-    public boolean update(Proveedor proveedor){
+    public boolean update(Ingrediente ingrediente){
         boolean flag = false;
-        String query = "update proveedor set nombre = ? where id = ?";
+        String query = "update ingrediente set nombre = ? where id = ?";
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,proveedor.getNombre_proveedor());
-            ps.setInt(2,proveedor.getId_proveedor());
+            ps.setString(1,ingrediente.getNombre_ingrediente());
+            ps.setInt(2,ingrediente.getId_ingrediente());
             if(ps.executeUpdate()>0){
                 flag = true;
             }
@@ -100,13 +103,13 @@ public class IngredienteDao {
         return flag;
     }
 
-    public boolean eliminarFisico(int id_proveedor) {
+    public boolean eliminarFisico(int id_ingrediente) {
         boolean flag = false;
-        String query = "delete from proveedor where id = ?";
+        String query = "delete from ingrediente where id = ?";
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1,id_proveedor);
+            ps.setInt(1,id_ingrediente);
             if(ps.executeUpdate()>0){
                 flag = true;
             }
